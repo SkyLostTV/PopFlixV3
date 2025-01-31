@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", checkAdminStatus);
 
 function addFilm() {
     if (localStorage.getItem("isAdmin") !== "true") {
-        alert("Accès refusé : Connectez-vous en admin !");
+        alert("Accès refusé : Vous devez être connecté en admin !");
         return;
     }
 
@@ -97,6 +97,7 @@ function addFilm() {
     document.getElementById("filmDescription").value = "";
     document.getElementById("filmUrl").value = "";
 }
+
 
 
 
