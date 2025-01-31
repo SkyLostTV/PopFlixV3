@@ -67,9 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function addFilm() {
-    // Vérifie si l'admin est connecté
     if (localStorage.getItem("isAdmin") !== "true") {
-        alert("Vous devez être connecté en admin pour ajouter un film !");
+        alert("Accès refusé : Connectez-vous en admin !");
         return;
     }
 
@@ -83,20 +82,17 @@ function addFilm() {
     }
 
     let film = { title, description, videoUrl };
-
-    // Ajouter à la liste affichée
     addFilmToList(film);
 
-    // Sauvegarder dans le stockage local
     let films = JSON.parse(localStorage.getItem("films")) || [];
     films.push(film);
     localStorage.setItem("films", JSON.stringify(films));
 
-    // Réinitialiser les champs
     document.getElementById("filmTitle").value = "";
     document.getElementById("filmDescription").value = "";
     document.getElementById("filmUrl").value = "";
 }
+
 
 
 function addFilmToList(film) {
