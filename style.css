@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #222;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    width: 200px;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #444;
+}
+
+#film-detail {
+    margin-left: 20px;
+    text-align: left;
+}
