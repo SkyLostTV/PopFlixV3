@@ -1,3 +1,5 @@
+console.log("Statut Admin :", localStorage.getItem("isAdmin"));
+
 const films = [
     { title: "Film 1", description: "Description du Film 1", videoUrl: "https://doodstream.com/e/XXXXXX" },
     { title: "Film 2", description: "Description du Film 2", videoUrl: "https://doodstream.com/e/YYYYYY" },
