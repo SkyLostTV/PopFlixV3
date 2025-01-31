@@ -50,7 +50,14 @@ function loginAdmin() {
         alert("Mot de passe incorrect !");
     }
 }
+function checkAdminStatus() {
+    let isAdmin = localStorage.getItem("isAdmin") === "true";
+    document.getElementById("add-film").style.display = isAdmin ? "block" : "none";
+    document.getElementById("admin-login").style.display = isAdmin ? "none" : "block";
+}
 
+// Vérifie si l'admin est connecté au chargement de la page
+document.addEventListener("DOMContentLoaded", checkAdminStatus);
 // Vérifier si l'admin est déjà connecté
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("isAdmin") === "false") {
