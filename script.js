@@ -32,3 +32,49 @@ function searchFilm() {
         }
     });
 }
+// Charger les films depuis le stockage local
+document.addEventListener("DOMContentLoaded", () => {
+    let savedFilms = JSON.parse(localStorage.getItem("films")) || [];
+    savedFilms.forEach(addFilmToList);
+});
+
+function addFilm() {
+    let title = document.getElementById("filmTitle").value;
+    let description = document.getElementById("filmDescription").value;
+    let videoUrl = document.getElementById("filmUrl").value;
+
+    if (!title || !description || !videoUrl) {
+        alert("Merci de remplir tous les champs !");
+        return;
+    }
+
+    let film = { title, description, videoUrl };
+
+    // Ajouter à la liste affichée
+    addFilmToList(film);
+
+    // Sauvegarder dans le stockage local
+    let films = JSON.parse(localStorage.getItem("films")) || [];
+    films.push(film);
+    localStorage.setItem("films", JSON.stringify(films));
+
+    // Réinitialiser les champs
+    document.getElementById("filmTitle").value = "";
+    document.getElementById("filmDescription").value = "";
+    document.getElementById("filmUrl").value = "";
+}
+
+function addFilmToList(film) {
+    let filmList = document.getElementById("film-list");
+    let li = document.createElement("li");
+    li.textContent = film.title;
+    li.style.cursor = "pointer";
+
+    li.addEventListener("click", () => {
+        document.getElementById("film-title").textContent = film.title;
+        document.getElementById("film-description").textContent = film.description;
+        document.getElementById("film-video").src = film.videoUrl;
+    });
+
+    filmList.appendChild(li);
+}
