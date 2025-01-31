@@ -37,6 +37,27 @@ document.addEventListener("DOMContentLoaded", () => {
     let savedFilms = JSON.parse(localStorage.getItem("films")) || [];
     savedFilms.forEach(addFilmToList);
 });
+const ADMIN_PASSWORD = "Z0nteS@KiKiVeVeoasis1504"; // Change le mot de passe ici
+
+function loginAdmin() {
+    let password = document.getElementById("adminPassword").value;
+    if (password === ADMIN_PASSWORD) {
+        alert("Connexion réussie !");
+        document.getElementById("admin-login").style.display = "none";
+        document.getElementById("add-film").style.display = "block";
+        localStorage.setItem("isAdmin", "true");
+    } else {
+        alert("Mot de passe incorrect !");
+    }
+}
+
+// Vérifier si l'admin est déjà connecté
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("isAdmin") === "true") {
+        document.getElementById("admin-login").style.display = "none";
+        document.getElementById("add-film").style.display = "block";
+    }
+});
 
 function addFilm() {
     let title = document.getElementById("filmTitle").value;
