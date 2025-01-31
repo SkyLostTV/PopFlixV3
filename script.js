@@ -55,18 +55,20 @@ function loginAdmin() {
 
 function checkAdminStatus() {
     let isAdmin = localStorage.getItem("isAdmin") === "true";
-    document.getElementById("add-film").style.display = isAdmin ? "block" : "none";
-    document.getElementById("admin-login").style.display = isAdmin ? "none" : "block";
+
+    console.log("Admin connecté ?", isAdmin); // Vérification dans la console
+
+    if (isAdmin) {
+        document.getElementById("add-film").style.display = "block";
+        document.getElementById("admin-login").style.display = "none";
+    } else {
+        document.getElementById("add-film").style.display = "none";
+        document.getElementById("admin-login").style.display = "block";
+    }
 }
 
-// Vérifie si l'admin est connecté au chargement de la page
 document.addEventListener("DOMContentLoaded", checkAdminStatus);
-// Vérifier si l'admin est déjà connecté
-document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("isAdmin") === "false") {
-        document.getElementById("admin-login").style.display = "none";
-        document.getElementById("add-film").style.display = "block";
-    }
+
 });
 
 function addFilm() {
