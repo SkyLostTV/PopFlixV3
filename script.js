@@ -20,3 +20,15 @@ films.forEach((film, index) => {
     });
     filmList.appendChild(li);
 });
+function searchFilm() {
+    let input = document.getElementById("searchBar").value.toLowerCase();
+    let films = document.querySelectorAll("#film-list li");
+
+    films.forEach(film => {
+        if (film.textContent.toLowerCase().includes(input)) {
+            film.style.display = "block";
+        } else {
+            film.style.display = "none";
+        }
+    });
+}
