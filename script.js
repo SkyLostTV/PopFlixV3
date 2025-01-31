@@ -39,19 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let savedFilms = JSON.parse(localStorage.getItem("films")) || [];
     savedFilms.forEach(addFilmToList);
 });
-const ADMIN_PASSWORD = "Z0nteS@KiKiVeVeoasis1504"; // Change le mot de passe ici
+const ADMIN_PASSWORD = "1234"; // Change ici si besoin
 
 function loginAdmin() {
     let password = document.getElementById("adminPassword").value;
+
     if (password === ADMIN_PASSWORD) {
         alert("Connexion réussie !");
-        document.getElementById("admin-login").style.display = "none";
-        document.getElementById("add-film").style.display = "block";
         localStorage.setItem("isAdmin", "true");
+        checkAdminStatus(); // Met à jour l'interface immédiatement
     } else {
         alert("Mot de passe incorrect !");
     }
 }
+
 function checkAdminStatus() {
     let isAdmin = localStorage.getItem("isAdmin") === "true";
     document.getElementById("add-film").style.display = isAdmin ? "block" : "none";
