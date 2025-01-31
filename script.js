@@ -53,7 +53,7 @@ function loginAdmin() {
 
 // Vérifier si l'admin est déjà connecté
 document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("isAdmin") === "true") {
+    if (localStorage.getItem("isAdmin") === "false") {
         document.getElementById("admin-login").style.display = "none";
         document.getElementById("add-film").style.display = "block";
     }
