@@ -66,3 +66,36 @@ li:hover {
 #add-film button:hover {
     background-color: #e03e00;
 }
+/* 📱 Amélioration pour mobile */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    #add-film input {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #add-film button {
+        width: 100%;
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    #film-list {
+        padding: 0;
+        text-align: center;
+    }
+
+    #film-list li {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 250px;
+    }
+}
