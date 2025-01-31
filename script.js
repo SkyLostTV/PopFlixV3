@@ -60,6 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function addFilm() {
+    // Vérifie si l'admin est connecté
+    if (localStorage.getItem("isAdmin") !== "true") {
+        alert("Vous devez être connecté en admin pour ajouter un film !");
+        return;
+    }
+
     let title = document.getElementById("filmTitle").value;
     let description = document.getElementById("filmDescription").value;
     let videoUrl = document.getElementById("filmUrl").value;
@@ -84,6 +90,7 @@ function addFilm() {
     document.getElementById("filmDescription").value = "";
     document.getElementById("filmUrl").value = "";
 }
+
 
 function addFilmToList(film) {
     let filmList = document.getElementById("film-list");
