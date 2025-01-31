@@ -37,3 +37,32 @@ li:hover {
     margin-bottom: 10px;
     font-size: 16px;
 }
+#add-film {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#add-film input {
+    display: block;
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#add-film button {
+    width: 90%;
+    padding: 12px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#add-film button:hover {
+    background-color: #e03e00;
+}
