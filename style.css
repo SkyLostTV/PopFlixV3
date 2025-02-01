@@ -29,6 +29,10 @@ header nav ul li a {
     font-size: 16px;
 }
 
+header nav ul li a:hover {
+    text-decoration: underline; /* Effet de survol */
+}
+
 header nav ul li input {
     padding: 5px;
     margin-top: 8px;
@@ -72,11 +76,6 @@ h2 {
     color: #fff;
     padding: 10px 0;
     font-size: 16px;
-}
-
-/* Boutons (supprimés, mais tu peux les ajouter plus tard si besoin) */
-.load-more {
-    display: none; /* Enlève l'affichage du bouton */
 }
 
 footer {
