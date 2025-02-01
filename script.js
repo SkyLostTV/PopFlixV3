@@ -1,62 +1,28 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const filmList = document.querySelectorAll('#film-list a');
-    const filmInfo = document.getElementById('film-info');
-    const videoPlayer = document.getElementById('video');
+document.addEventListener('DOMContentLoaded', () => {
+    const searchBar = document.getElementById('search-bar');
+    const movieCards = document.querySelectorAll('.movie-card');
+    const seriesCards = document.querySelectorAll('.series-card');
+    const boxOfficeCards = document.querySelectorAll('.box-office-card');
 
-    // Les informations sur les films
-    const films = {
-        1: {
-            title: 'Star Wars 4',
-            description: 'Description du Film 1',
-            videoUrl: 'https://doodstream.com/e/xxxxx1'
-        },
-        2: {
-            title: 'Film 2',
-            description: 'Description du Film 2',
-            videoUrl: 'https://doodstream.com/e/xxxxx2'
-        },
-        3: {
-            title: 'Film 3',
-            description: 'Description du Film 3',
-            videoUrl: 'https://doodstream.com/e/xxxxx3'
-        }
-    };
+    searchBar.addEventListener('input', function() {
+        const searchTerm = searchBar.value.toLowerCase();
 
-    // Fonction de recherche de film
-    window.searchFilm = function() {
-        const query = document.getElementById('search-bar').value.toLowerCase(); // Récupère la recherche
-        const results = Object.keys(films).filter(filmId => films[filmId].title.toLowerCase().includes(query)); // Recherche dans les films
-
-        // Cache tous les films au départ
-        filmList.forEach(film => {
-            film.style.display = 'none';
+        // Filtre les films
+        movieCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            card.style.display = title.includes(searchTerm) ? 'block' : 'none';
         });
 
-        // Affiche les films correspondants à la recherche
-        results.forEach(filmId => {
-            const filmElement = document.querySelector(`#film-list a[data-id="${filmId}"]`);
-            if (filmElement) {
-                filmElement.style.display = 'block';
-            }
+        // Filtre les séries
+        seriesCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            card.style.display = title.includes(searchTerm) ? 'block' : 'none';
         });
-    };
 
-    // Quand un film est sélectionné
-    filmList.forEach(function(film) {
-        film.addEventListener('click', function(event) {
-            event.preventDefault(); // Empêche le rechargement de la page
-
-            const filmId = film.getAttribute('data-id'); // Récupère l'ID du film
-            const currentFilm = films[filmId]; // Récupère les informations du film
-
-            // Affiche les détails du film
-            filmInfo.innerHTML = `
-                <h3>${currentFilm.title}</h3>
-                <p>${currentFilm.description}</p>
-            `;
-
-            // Change l'URL du lecteur vidéo
-            videoPlayer.src = currentFilm.videoUrl;
+        // Filtre les films du box office
+        boxOfficeCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            card.style.display = title.includes(searchTerm) ? 'block' : 'none';
         });
     });
 });
