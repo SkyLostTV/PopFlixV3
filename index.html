@@ -8,17 +8,24 @@
 </head>
 <body>
     <header>
-        <h1>Popflix</h1> <!-- Titre du site -->
-        <nav>
-            <ul id="film-list">
-                <!-- Liste des films -->
-                <li><a href="#" data-id="1"><img src="film1.jpg" alt="Film 1"> Film 1</a></li>
-                <li><a href="#" data-id="2"><img src="film2.jpg" alt="Film 2"> Film 2</a></li>
-                <li><a href="#" data-id="3"><img src="film3.jpg" alt="Film 3"> Film 3</a></li>
-                <!-- Ajoute d'autres films ici -->
-            </ul>
-        </nav>
-    </header>
+    <h1>Popflix</h1> <!-- Titre du site -->
+
+    <!-- Barre de recherche -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Rechercher un film...">
+        <button onclick="searchFilm()">Rechercher</button>
+    </div>
+
+    <nav>
+        <ul id="film-list">
+            <li><a href="#" data-id="1"><img src="film1.jpg" alt="Film 1"> Film 1</a></li>
+            <li><a href="#" data-id="2"><img src="film2.jpg" alt="Film 2"> Film 2</a></li>
+            <li><a href="#" data-id="3"><img src="film3.jpg" alt="Film 3"> Film 3</a></li>
+            <!-- Ajoute d'autres films ici -->
+        </ul>
+    </nav>
+</header>
+
 
     <main>
         <section id="film-details">
