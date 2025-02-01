@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Les informations sur les films
     const films = {
         1: {
-            title: 'Film 1',
+            title: 'Star Wars 4',
             description: 'Description du Film 1',
             videoUrl: 'https://doodstream.com/e/xxxxx1'
         },
