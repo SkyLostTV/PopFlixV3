@@ -3,49 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popflix - Votre site de streaming</title>
-    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
+    <title>Popflix</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- En-tête -->
     <header>
-    <h1>Popflix</h1> <!-- Titre du site -->
+        <nav>
+            <ul>
+                <li><a href="#">FrenchStream</a></li>
+                <li><a href="#">Films</a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Animes</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><input type="text" id="search-bar" placeholder="Rechercher un film..."></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Barre de recherche -->
-    <div class="search-container">
-        <input type="text" id="search-bar" placeholder="Rechercher un film...">
-        <button onclick="searchFilm()">Rechercher</button>
-    </div>
-
-    <nav>
-        <ul id="film-list">
-            <li><a href="#" data-id="1"><img src="film1.jpg" alt="Film 1"> Film 1</a></li>
-            <li><a href="#" data-id="2"><img src="film2.jpg" alt="Film 2"> Film 2</a></li>
-            <li><a href="#" data-id="3"><img src="film3.jpg" alt="Film 3"> Film 3</a></li>
+    <!-- Derniers films -->
+    <section class="movies">
+        <h2>Derniers Films</h2>
+        <div class="movie-list">
+            <div class="movie-card">
+                <img src="valana2.jpg" alt="Valana 2">
+                <h3>Valana 2</h3>
+            </div>
+            <div class="movie-card">
+                <img src="babygirl.jpg" alt="Babygirl">
+                <h3>Babygirl</h3>
+            </div>
             <!-- Ajoute d'autres films ici -->
-        </ul>
-    </nav>
-</header>
+        </div>
+        <button class="load-more">Voir la suite...</button>
+    </section>
 
-
-    <main>
-        <section id="film-details">
-            <h2>Details du Film</h2>
-            <div id="film-info">
-                <!-- Informations détaillées du film (Titre, Description, etc.) -->
-                <p>Choisissez un film pour voir ses détails.</p>
+    <!-- Dernières séries -->
+    <section class="series">
+        <h2>Dernières Séries</h2>
+        <div class="series-list">
+            <div class="series-card">
+                <img src="severance.jpg" alt="Severance">
+                <h3>Severance - Saison 2</h3>
             </div>
-
-            <div id="video-player">
-                <!-- Lecteur vidéo Doodstream -->
-                <iframe id="video" src="" width="100%" height="400" frameborder="0"></iframe>
+            <div class="series-card">
+                <img src="spiderwick.jpg" alt="Spiderwick">
+                <h3>Les Chroniques de Spiderwick - Saison 1</h3>
             </div>
-        </section>
-    </main>
+            <!-- Ajoute d'autres séries ici -->
+        </div>
+        <button class="load-more">Voir la suite...</button>
+    </section>
+
+    <!-- Box Office -->
+    <section class="box-office">
+        <h2>Box Office</h2>
+        <div class="box-office-list">
+            <div class="box-office-card">
+                <img src="sonic.jpg" alt="Sonic">
+                <h3>Sonic 3, le film</h3>
+            </div>
+            <div class="box-office-card">
+                <img src="backaction.jpg" alt="Back Action">
+                <h3>Back in Action</h3>
+            </div>
+            <!-- Ajoute d'autres films du Box Office ici -->
+        </div>
+        <button class="load-more">Voir la suite...</button>
+    </section>
 
     <footer>
         <p>&copy; 2025 Popflix</p>
     </footer>
 
-    <script src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
