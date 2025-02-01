@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const filmInfo = document.getElementById('film-info');
     const videoPlayer = document.getElementById('video');
 
-    // Les informations sur les films (en pratique, tu peux les récupérer depuis une base de données)
+    // Les informations sur les films
     const films = {
         1: {
             title: 'Film 1',
@@ -20,6 +20,25 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Description du Film 3',
             videoUrl: 'https://doodstream.com/e/xxxxx3'
         }
+    };
+
+    // Fonction de recherche de film
+    window.searchFilm = function() {
+        const query = document.getElementById('search-bar').value.toLowerCase(); // Récupère la recherche
+        const results = Object.keys(films).filter(filmId => films[filmId].title.toLowerCase().includes(query)); // Recherche dans les films
+
+        // Cache tous les films au départ
+        filmList.forEach(film => {
+            film.style.display = 'none';
+        });
+
+        // Affiche les films correspondants à la recherche
+        results.forEach(filmId => {
+            const filmElement = document.querySelector(`#film-list a[data-id="${filmId}"]`);
+            if (filmElement) {
+                filmElement.style.display = 'block';
+            }
+        });
     };
 
     // Quand un film est sélectionné
