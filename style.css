@@ -74,20 +74,9 @@ h2 {
     font-size: 16px;
 }
 
-/* Boutons */
+/* Boutons (supprimés, mais tu peux les ajouter plus tard si besoin) */
 .load-more {
-    display: block;
-    margin: 20px auto;
-    background-color: #ff7f50;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.load-more:hover {
-    background-color: #ff5722;
+    display: none; /* Enlève l'affichage du bouton */
 }
 
 footer {
