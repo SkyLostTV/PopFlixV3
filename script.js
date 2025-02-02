@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             videoUrl: 'https://doodstream.com/e/xxxxx3'
         },
           3: {
-            title: 'Avatar 2',
+            title: 'caca',
             description: 'Les habitants de Pandora affrontent de nouveaux défis dans cet époustouflant film de science-fiction.',
             videoUrl: 'https://doodstream.com/e/xxxxx3'
         }
