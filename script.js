@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Avatar 2',
             description: 'Les habitants de Pandora affrontent de nouveaux défis dans cet époustouflant film de science-fiction.',
             videoUrl: 'https://doodstream.com/e/xxxxx3'
+        },
+          3: {
+            title: 'Avatar 2',
+            description: 'Les habitants de Pandora affrontent de nouveaux défis dans cet époustouflant film de science-fiction.',
+            videoUrl: 'https://doodstream.com/e/xxxxx3'
         }
         // Ajoute d'autres films ici...
     };
