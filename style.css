@@ -29,10 +29,6 @@ header nav ul li a {
     font-size: 16px;
 }
 
-header nav ul li a:hover {
-    text-decoration: underline; /* Effet de survol */
-}
-
 header nav ul li input {
     padding: 5px;
     margin-top: 8px;
@@ -50,34 +46,66 @@ h2 {
     text-align: center;
 }
 
-/* Cartes de films et séries */
-.movie-list, .series-list, .box-office-list {
+/* Cartes de films */
+.movie-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.movie-card, .series-card, .box-office-card {
+.movie-card {
     background-color: #1a1a1a;
     border-radius: 8px;
     width: 200px;
     overflow: hidden;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
-.movie-card img, .series-card img, .box-office-card img {
+.movie-card img {
     width: 100%;
     height: auto;
 }
 
-.movie-card h3, .series-card h3, .box-office-card h3 {
+.movie-card h3 {
     color: #fff;
     padding: 10px 0;
     font-size: 16px;
 }
 
+/* Détails du film */
+#movie-details {
+    display: none;
+    color: #fff;
+    text-align: center;
+}
+
+#movie-details h2 {
+    font-size: 24px;
+}
+
+#video-player iframe {
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#back-button:hover {
+    background-color: #ff5722;
+}
+
+/* Retour aux films */
 footer {
     text-align: center;
     padding: 20px;
