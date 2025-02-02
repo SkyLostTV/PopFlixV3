@@ -27,6 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const movieTitle = document.getElementById('movie-title');
     const movieDescription = document.getElementById('movie-description');
 
+    // Fonction pour filtrer les films en fonction de la barre de recherche
+    const searchBar = document.getElementById('search-bar');
+    searchBar.addEventListener('input', function() {
+        const searchTerm = searchBar.value.toLowerCase();
+
+        movieCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            if (title.includes(searchTerm)) {
+                card.style.display = 'block'; // Affiche le film
+            } else {
+                card.style.display = 'none'; // Cache le film
+            }
+        });
+    });
+
     movieCards.forEach(card => {
         card.addEventListener('click', () => {
             const movieId = card.getAttribute('data-id');
