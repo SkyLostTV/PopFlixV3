@@ -1,69 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Données des films
-    const films = {
-        1: {
+    const films = [
+        {
+            id: 1,
             title: 'Valana 2',
             description: 'Un film d\'aventure épique où Valana affronte de terribles créatures pour sauver son royaume.',
-            videoUrl: 'https://doodstream.com/e/xxxxx1'
+            videoUrl: 'https://doodstream.com/e/xxxxx1',
+            image: 'valana2.jpg'
         },
-        2: {
+        {
+            id: 2,
             title: 'Babygirl',
             description: 'Une comédie romantique émouvante qui suit l\'histoire d\'une jeune femme et de son amour interdit.',
-            videoUrl: 'https://doodstream.com/e/xxxxx2'
+            videoUrl: 'https://doodstream.com/e/xxxxx2',
+            image: 'babygirl.jpg'
         },
-        3: {
+        {
+            id: 3,
             title: 'Avatar 2',
             description: 'Les habitants de Pandora affrontent de nouveaux défis dans cet époustouflant film de science-fiction.',
-            videoUrl: 'https://doodstream.com/e/xxxxx3'
+            videoUrl: 'https://doodstream.com/e/xxxxx3',
+            image: 'avatar2.jpg'
         }
         // Ajoute d'autres films ici...
-    };
+    ];
 
-    // Sélectionner tous les films et leur ajouter un événement de clic
-    const movieCards = document.querySelectorAll('.movie-card');
-    const movieDetailsSection = document.getElementById('movie-details');
-    const backButton = document.getElementById('back-button');
-    const videoFrame = document.getElementById('video');
-    const movieTitle = document.getElementById('movie-title');
-    const movieDescription = document.getElementById('movie-description');
+    // Sélectionner l'élément pour afficher les films
+    const movieListElement = document.getElementById('movie-list');
 
-    // Fonction pour filtrer les films en fonction de la barre de recherche
-    const searchBar = document.getElementById('search-bar');
-    searchBar.addEventListener('input', function() {
-        const searchTerm = searchBar.value.toLowerCase();
+    // Fonction pour afficher les films
+    function displayMovies() {
+        films.forEach(film => {
+            const filmCard = document.createElement('div');
+            filmCard.classList.add('movie-card');
+            filmCard.setAttribute('data-id', film.id);
 
-        movieCards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            if (title.includes(searchTerm)) {
-                card.style.display = 'block'; // Affiche le film
-            } else {
-                card.style.display = 'none'; // Cache le film
-            }
+            filmCard.innerHTML = `
+                <img src="${film.image}" alt="${film.title}">
+                <h3>${film.title}</h3>
+            `;
+
+            // Ajouter un événement pour chaque film
+            filmCard.addEventListener('click', () => {
+                showFilmDetails(film);
+            });
+
+            // Ajouter la carte du film à la liste
+            movieListElement.appendChild(filmCard);
         });
-    });
+    }
 
-    movieCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const movieId = card.getAttribute('data-id');
-            const movie = films[movieId];
+    // Fonction pour afficher les détails du film
+    function showFilmDetails(film) {
+        const movieDetailsSection = document.getElementById('movie-details');
+        const videoFrame = document.getElementById('video');
+        const movieTitle = document.getElementById('movie-title');
+        const movieDescription = document.getElementById('movie-description');
 
-            // Mettre à jour les informations du film sélectionné
-            movieTitle.textContent = movie.title;
-            movieDescription.textContent = movie.description;
-            videoFrame.src = movie.videoUrl;
+        movieTitle.textContent = film.title;
+        movieDescription.textContent = film.description;
+        videoFrame.src = film.videoUrl;
 
-            // Afficher la section de détails du film
-            movieDetailsSection.style.display = 'block';
-
-            // Cacher la section des films
-            document.querySelector('.movies').style.display = 'none';
-        });
-    });
+        movieDetailsSection.style.display = 'block';
+        document.querySelector('.movies').style.display = 'none';
+    }
 
     // Revenir à la section des films
+    const backButton = document.getElementById('back-button');
     backButton.addEventListener('click', () => {
-        movieDetailsSection.style.display = 'none';
+        document.getElementById('movie-details').style.display = 'none';
         document.querySelector('.movies').style.display = 'block';
-        videoFrame.src = ''; // Arrêter la vidéo lorsque l'on retourne à la liste des films
+        document.getElementById('video').src = ''; // Arrêter la vidéo lorsque l'on retourne à la liste des films
     });
+
+    // Appeler la fonction pour afficher les films au chargement de la page
+    displayMovies();
 });
